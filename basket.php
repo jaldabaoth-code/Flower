@@ -33,18 +33,18 @@
 								    echo "<td>".htmlspecialchars($_SESSION['panier']['prixProduit'][$i])."</td>";
 								    echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\">XX</a></td>";
 								echo "</tr>";
-							}
-							echo "<tr>
-                                <td colspan=\"2\"> </td>";
-                                echo "<td colspan=\"2\">";
-                                echo "Total : ".MontantGlobal();
-                                echo "</td></tr>";
-                                echo "<tr><td colspan=\"4\">";
-                                echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-                                echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-                                echo "</td>
-                            </tr>";
-						}
+							} ?>
+							<tr>
+								<td colspan="2"></td>
+								<td colspan="2">Total : <?php MontantGlobal() ?></td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<input type="submit" value="Rafraichir">
+									<input type="hidden" name="action" value="refresh">
+								</td>
+							</tr>
+						<?php }
 					}
 				?>
 			</table>

@@ -3,7 +3,7 @@
     try {
         $bdd = new PDO('mysql:host=localhost;dbname=lafleurv2', '', '');
     } catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
+        die('Erreur : ' . $e->getMessage());
     }
 
     function basketCreation() {

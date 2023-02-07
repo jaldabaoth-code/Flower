@@ -11,30 +11,22 @@
         <link type="text/css" rel="stylesheet" href="../assets/styles/style.css"/>
 		<title>Admin Login</title>
 	</head>
+	<?php
+		include("../includes/header.php");
+	?>
 	<body>
-		<?php
-			include("../includes/header.php");
-		?>
 		<section>
 			<form method="POST">
 				<table>
 					<tr>
-						<th colspan='2'>
-							Authentification
-						</th>
+						<th colspan='2'>Authentification</th>
 					</tr>
 					<tr>
-						<td>
-							Login : <input type="text" id="login" name="login"><br>
-						</td>
-						<td>	
-							Password : <input type="password" id="mdp" name="mdp"><br>
-						</td>
+						<td>Login : <input type="text" id="login" name="login"></td>
+						<td>Password : <input type="password" id="mdp" name="mdp"></td>
 					</tr>
 					<tr>					
-						<td colspan='2'>
-							<input type="submit" value="Login">
-						</td>
+						<td colspan='2'><input type="submit" value="Login"></td>
 					</tr>
 				</table>
 			</form>
@@ -43,7 +35,7 @@
 					$chaine = stripslashes($chaine);
 					return $chaine;
 				}
-                if($_POST && isset($_POST['login'])) { 
+                if ($_POST && isset($_POST['login'])) { 
                     // Preparing a statement
                     $stmt = $db->prepare("SELECT * FROM identification WHERE login = ?  AND `mdp`=? ");
                     // Execute/run the statement. 
@@ -51,12 +43,10 @@
                     // Fetch the result. 
                     $identification = $stmt->fetch(); 
                     var_dump($identification); 
-
                     $_SESSION['log']=$identification['login'];
                     $_SESSION['mp']=$identification['mdp'];
-
-                    if(isset($_SESSION['log'], $_SESSION['mp'])) {
-                        header('Location: accueil.php');
+                    if (isset($_SESSION['log'], $_SESSION['mp'])) {
+                        header('Location: adminHome.php');
                         exit();
                     } else {
                         echo "Authentification incorrecte! (login ou password erroné ...)";
