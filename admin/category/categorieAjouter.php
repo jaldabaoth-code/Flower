@@ -9,7 +9,7 @@
 ?>
 <html>
 	<head>
-		<title>Ajouter Categorie</title>
+		<title>Add Category</title>
 	</head>
 	<?php
 		include("include/header.php");
@@ -17,16 +17,16 @@
 	?>
 	<body>
 		<section>
-			<h3>Ajouter une nouvelle Categorie</h3>
+			<h3>Add a new Category</h3>
       		<!-- La creation du formulaire -->
 			<form name="categorieajouter" action="categorieAjouter.php" method="POST">
 				<table name="cateajouter">
 				<tr>
-					<td>Code Categorie : </td>
+					<td>Code Category : </td>
 					<td><input type="text" name="cat_code"></td>
 				</tr>
 				<tr>
-					<td>Libelle Categorie : </td>
+					<td>Category : </td>
 					<td><input type="text" name="cat_libelle"></td>
 				</tr>
 				<tr>
@@ -42,9 +42,9 @@
 					$sql = "INSERT INTO categorie (cat_code, cat_libelle) VALUES ('$cat_code', '$cat_libelle')";
 					$req = mysql_query($sql, $cnx) or die(mysql_error());
 					if ($req) {
-						echo("L'insertion a été correctement effectuée") ;
+						echo("Insertion was successful") ;
 					} else {
-						echo("L'insertion a échouée") ;
+						echo("Insert failed") ;
 					}
 				}
 			?>
