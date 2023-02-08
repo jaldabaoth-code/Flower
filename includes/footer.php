@@ -1,3 +1,3 @@
 <footer>
-    <h2>copyrights Votre nom réalisé le ...</h2>
+    <h2>Copyrights Your name made on ...</h2>
 </footer>

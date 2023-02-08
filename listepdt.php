@@ -16,8 +16,10 @@
     ?>
 		<section>
             <?php
-                $categ = $_GET['categ'];
-                $rep = $bdd->query("SELECT * FROM produit WHERE pdt_categorie='$categ'");
+                //$categ = $_GET['categ'];
+                //$rep = $bdd->query("SELECT * FROM produit WHERE pdt_categorie='$categ'");
+                var_dump($_SESSION["basket"]);
+                var_dump($_GET);
             ?>
             <table>
                 <tr>
@@ -38,17 +40,21 @@
             <?php $rep-> CloseCursor(); ?> 
             <form action="basket.php" method="get">
                 Products List : Quantity
-                <select name="refPdt" size="1">
-                    <?php
+                <br/>
+                <?php
+                    echo '<select name="refPdt" size="1">';
                         $categ = $_GET['categ'];
                         $rep = $bdd->query("SELECT pdt_designation FROM produit where pdt_categorie='$categ'");
-                            while ($ligne = $rep->fetch()) {
-                                echo '<option value="'.$ligne['pdt_designation'].'">'.$ligne['pdt_designation'];'</option>';
-                            }
-                        $rep-> CloseCursor();
-                    ?>   
-                </select>
-                <input type="text" name="quantite" size="5" value="1">
+                        while ($ligne = $rep->fetch()) {
+                            echo '<option value="'.$ligne['pdt_designation'].'">'.$ligne['pdt_designation'];'</option>';
+                        }
+                    echo '</select>';
+                    while ($ligne = $rep->fetch()) {
+                        echo $ligne['pdt_prix'];
+                    }
+                    $rep-> CloseCursor();
+                ?>   
+                <input type="text" name="quantity" size="5" value="1">
                 <input type="submit" name="action" value="Add to Basket">
             </form>
         </section>

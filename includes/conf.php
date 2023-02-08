@@ -7,12 +7,12 @@
     }
 
     function basketCreation() {
-        if (!isset($_SESSION["basket"])) {
-            $_SESSION["basket"] = array();
-            $_SESSION["basket"]["reference"] = array();
-            $_SESSION["basket"]["quantity"] = array();
+       /*  if (isset($_GET)) { */
+            $_SESSION["basket"]["reference"] = $_GET['refPdt'];
+            $_SESSION["basket"]["quantity"] = $_GET['quantity'];
+            $_SESSION["basket"]["unitPrice"] = $_GET['unitPrice'];
             $_SESSION["basket"]["lock"] = false;
-        }
+   /*      } */
     }	
 
     function addItem($reference, $quantity) {
@@ -24,8 +24,8 @@
             $_SESSION["basket"]["quantity"][$productPosition] += $quantity;
         } else {
             // Otherwise we add the product
-            array_push( $_SESSION['panier']['reference'], $reference);
-            array_push( $_SESSION['panier']['quantite'], $quantity);
+            array_push( $_SESSION['basket']['reference'], $reference);
+            array_push( $_SESSION['basket']['quantity'], $quantity);
         }
     } else
         echo "A problem occurred please contact the site administrator";
