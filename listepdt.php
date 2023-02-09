@@ -14,48 +14,34 @@
         include 'includes/header.php';
         include 'includes/navbar.php';
     ?>
-		<section>
-            <?php
-                //$categ = $_GET['categ'];
-                //$rep = $bdd->query("SELECT * FROM produit WHERE pdt_categorie='$categ'");
-                var_dump($_SESSION["basket"]);
-                var_dump($_GET);
-            ?>
-            <table>
-                <tr>
-                    <th>Images</th>
-                    <th>Code</th>
-                    <th>Libellé</th>
-                    <th>Prix</th>
-                </tr>
-                <?php while ($ligne = $rep->fetch()) { ?>
+        <form action="basket.php" method="GET">
+            <section>
+                <table>
                     <tr>
-                        <td><?php echo "<img src=./assets/images/" . $ligne['pdt_image'] . ".jpg>" ?></td>
-                        <td><?php echo $ligne['pdt_ref'] ?></td>
-                        <td><?php echo $ligne['pdt_designation'] ?></td>
-                        <td><?php echo $ligne['pdt_prix'] ?></td>
+                        <th>Images</th>
+                        <th>Code</th>
+                        <th>Libellé</th>
+                        <th>Prix</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
                     </tr>
-                <?php } ?>
-            </table>
-            <?php $rep-> CloseCursor(); ?> 
-            <form action="basket.php" method="get">
-                Products List : Quantity
-                <br/>
-                <?php
-                    echo '<select name="refPdt" size="1">';
+                    <?php
                         $categ = $_GET['categ'];
-                        $rep = $bdd->query("SELECT pdt_designation FROM produit where pdt_categorie='$categ'");
+                        $rep = $bdd->query("SELECT * FROM produit where pdt_categorie='$categ'");
                         while ($ligne = $rep->fetch()) {
-                            echo '<option value="'.$ligne['pdt_designation'].'">'.$ligne['pdt_designation'];'</option>';
+                            echo '<tr>';
+                                echo "<td><img src=./assets/images/" . $ligne['pdt_image'] . ".jpg></td>";
+                                
+
+                                echo "<td>" . $ligne['pdt_ref'] . "<input type='hidden' name='reference' value='$ligne[pdt_ref]'></td>";
+                                echo "<td>" . $ligne['pdt_designation'] . "<input type='hidden' name='productName' value='$ligne[pdt_designation]'></td>";
+                                echo "<td>" . $ligne['pdt_prix'] . "<input type='hidden' name='unitPrice' value='$ligne[pdt_prix]'></td>";
+                                echo '<td><input type="text" name="quantity" size="5" value="1"></td>';
+                                echo '<td><input type="submit" name="action" value="Add to Basket"></td>';
+                            echo '</tr>';
                         }
-                    echo '</select>';
-                    while ($ligne = $rep->fetch()) {
-                        echo $ligne['pdt_prix'];
-                    }
-                    $rep-> CloseCursor();
-                ?>   
-                <input type="text" name="quantity" size="5" value="1">
-                <input type="submit" name="action" value="Add to Basket">
+                    ?>
+                </table>
             </form>
         </section>
     </body>

@@ -2,6 +2,9 @@
     include ('includes/conf.php');
     session_start();
 	echo '<?xml version="1.0" encoding="utf-8"?>';
+/* 	if ($_Get['clear']) {
+		session_destroy();
+	} */
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,24 +25,27 @@
 					<td>Action</td>
 				</tr>
 				<?php
-					$basket=$_SESSION['basket'];
+				            //$_SESSION["basket"] = $_GET;
+
+					var_dump($_GET);
+					$basket[0]=$_GET;
 					if (sizeof($basket) <= 0) {
 						"<tr>";
 							echo "<td>Your basket is empty</td>";
 						"</tr>";
 					} else {
-						for ($i=0; $i < $basket; $i++) {
+						var_dump($basket);
+						for ($i=0; $i < sizeof($basket); $i++) {
 							echo "<tr>";
-								echo "<td>" . $basket['productName'][$i] . "</td>";
-								echo "<td>" . $basket['quantity'][$i] . "</td>";
-								echo "<td>" . $basket['unitPrice'][$i] ."</td>";
+			 					echo "<td>" . $basket[0]['productName'] . "</td>";
+								echo "<td>" . $basket[0]['quantity'] . "</td>";
+								echo "<td>" . $basket[0]['unitPrice'] . "</td>";
 								echo "<td>Delete</td>";
 							echo "</tr>";
-						}
+				 		}
 				?>
 						<tr>
 							<td colspan="2"></td>
-							<td colspan="2">Total : <?php MontantGlobal() ?></td>
 						</tr>
 						<tr>
 							<td colspan="4">

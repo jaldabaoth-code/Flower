@@ -16,7 +16,7 @@
         </div>
         <div>
             <form action="basket.php" method="GET">
-                <input type="submit" name="action" value="Clear the basket">
+                <input type="submit" name="clear" value="Clear the basket">
             </form>
             <form action="order.php" method="GET">
                 <p><input type="submit" value="Order">
