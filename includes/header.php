@@ -1,6 +1,6 @@
 <header>
     <div class="left">
-        <a href= "admin/accueil.php">Admin</a>
+        <a href="../admin/accueil.php"><img class="admin" src="../assets/images/administrator.png" title="Admin panel" alt="image to admin panel"></a>
     </div>
 
     <div class="center">
@@ -10,17 +10,16 @@
     </div>
 
     <div id="basketCreation" class="right">
-        <div>
-            <a href= "admin/accueil.php">Register</a>
-            <a href= "admin/accueil.php">Login</a>
+
+        <div class="connect">
+            <button class="log">Login</button>
+            <button class="reg">Sign up</button>
         </div>
-        <div>
+        <div class="baskets">
             <form action="basket.php" method="GET">
-                <input type="submit" name="clear" value="Clear the basket">
+                <input class="basket" type="image" src="../assets/images/empty_basket.png" title="Clean your basket" name="clear" alt="image for empty the basket">
             </form>
-            <form action="order.php" method="GET">
-                <p><input type="submit" value="Order">
-            </form>
+            <a href="../basket.php"><img class="basket" src="../assets/images/go_to_basket.png" title="Go to your cart" alt="image go to basket"></a>
         </div>
     </div>
 </header>

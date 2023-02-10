@@ -7,26 +7,7 @@ body {
 	width: 80%;
 }
 
-header {
-	display: flex;
-/* 	flex-direction: column; */
-	text-align: center;
-	background-image: url(../images/header_background.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-}
 
-.left {
-	width: 20%;
-}
-
-.right {
-	width: 20%;
-}
-
-.center {
-	width: 60%;
-}
 
 h1 	{
 	text-decoration: underline;
@@ -83,4 +64,17 @@ footer {
 
 .imgacc2 {
 	width: 30%;
+}
+
+table {
+	padding-top: 24px;
+	padding-bottom: 24px;
+	margin: 0 auto; 
+	border-collapse: separate;
+	text-align: center;
+	vertical-align : middle;
+}     
+
+tr, td, th {
+	border: 1px solid black;
 }
