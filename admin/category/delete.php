@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <?php
-	include ('include/conf.php');
-	session_start();
-  	if(empty($_SESSION['log']) || empty($_SESSION['mp']))
+    include ('../../includes/conf.php');
+    session_start();
+/*   	if(empty($_SESSION['log']) || empty($_SESSION['mp']))
   	{
     	header("Location: connexio.php");
     	die();
-  	}
+  	} */
 ?>
 <html>
 	<head>
-		<title>Supprimer Categorie</title>
+        <?php
+            include '../../includes/head.php';
+        ?>
+		<title>Delete Category</title>
 	</head>
-	<?php
-        include("include/header.php");
-        include("include/nav.php");
+    <?php
+        include '../../includes/header.php';
+        include '../includes/navbar.php';
     ?>
 	<body>
 		<section>
@@ -22,9 +25,9 @@
 			<!-- Liste deroulante -->
 			<form name="categoriesupprimer" action="categorieSupprimer.php" method="POST">
 				<?php             
-					$select = mysql_query("SELECT cat_code, cat_libelle FROM categorie");
+					$select = $bdd->query("SELECT cat_code, cat_libelle FROM categorie");
 					echo '<select name="cat_libelle">';
-						while($cat_libelle = mysql_fetch_array($select)) {
+						while($cat_libelle = $select->fetch()) {
 							echo "<option>";
 								echo $cat_libelle['cat_libelle'];
 							echo '</option>';
@@ -35,13 +38,13 @@
 					}
 					// Requete de suppression
 					$sql = "DELETE FROM categorie WHERE cat_libelle = '$cat_libelle'"; 
-					$requete = mysql_query($sql) or die(mysql_error());
+					$requete = $bdd->query($sql);
 					echo '<input type="submit" value="SUPPRIMER">';
 				?> 
 			</form>
 		</section>
 	</body>
-	<?php
-		include("include/footer.php");
-	?> 
+    <?php
+        include("../../includes/footer.php");
+    ?>
 </html>

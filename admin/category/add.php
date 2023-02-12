@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <?php
-	include ('include/conf.php');
+    include ('../../includes/conf.php');
 	session_start();
-	if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+/* 	if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
 		header("Location: connexio.php");
 		die();
-	}
+	} */
 ?>
 <html>
 	<head>
+        <?php
+            include '../../includes/head.php';
+        ?>
 		<title>Add Category</title>
 	</head>
-	<?php
-		include("include/header.php");
-		include("include/nav.php");
-	?>
+    <?php
+        include '../../includes/header.php';
+        include '../includes/navbar.php';
+    ?>
 	<body>
 		<section>
 			<h3>Add a new Category</h3>
@@ -51,6 +54,6 @@
 		</section>
 	</body>
 	<?php
-		include("include/footer.php");
+        include("../../includes/footer.php");
 	?> 
 </html>

@@ -4,31 +4,23 @@
 		include ('../includes/conf.php');
 		session_start();
 	?>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link type="text/css" rel="stylesheet" href="../assets/styles/style.css"/>
+	<head>
+        <?php
+            include '../includes/head.php';
+        ?>
 		<title>Admin Login</title>
 	</head>
-	<?php
-		include("../includes/header.php");
-	?>
+    <?php
+        include '../includes/header.php';
+        include 'includes/navbar.php';
+    ?>
 	<body>
 		<section>
-			<form method="POST">
-				<table>
-					<tr>
-						<th colspan='2'>Authentification</th>
-					</tr>
-					<tr>
-						<td>Login : <input type="text" id="login" name="login"></td>
-						<td>Password : <input type="password" id="mdp" name="mdp"></td>
-					</tr>
-					<tr>					
-						<td colspan='2'><input type="submit" value="Login"></td>
-					</tr>
-				</table>
+			<form class="form-autentification" method="POST">
+				<h2>Authentification</h2>
+				<input class="admin-login" type="text" name="login" placeholder="Login" required="true">
+				<input class="admin-password" type="password" name="password" placeholder="Password" required="true">
+				<input class="admin-submit" type="submit" value="Login">
 			</form>
 			<?php
 				function Verif_magicquotes ($chaine) {
@@ -37,9 +29,9 @@
 				}
                 if ($_POST && isset($_POST['login'])) { 
                     // Preparing a statement
-                    $stmt = $db->prepare("SELECT * FROM identification WHERE login = ?  AND `mdp`=? ");
+                    $stmt = $bdd->prepare("SELECT * FROM identification WHERE login = ?  AND `mdp`=? ");
                     // Execute/run the statement. 
-                    $stmt->execute(array($_POST['login'], $_POST['mdp']));
+                    $stmt->execute(array($_POST['login'], $_POST['password']));
                     // Fetch the result. 
                     $identification = $stmt->fetch(); 
                     var_dump($identification); 

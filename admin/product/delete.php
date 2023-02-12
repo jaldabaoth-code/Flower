@@ -9,11 +9,14 @@
 ?>
 <html>
     <head>
-        <title>Supprimer Produit</title>
-    </head>
+        <?php
+            include '../../includes/head.php';
+        ?>
+		<title>Delete Product</title>
+	</head>
     <?php
-        include("include/header.php");
-        include("include/nav.php");
+        include '../../includes/header.php';
+        include '../includes/navbar.php';
     ?>
     <body>
         <section>

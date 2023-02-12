@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <?php
-    include ('include/conf.php');
+    include ('../../includes/conf.php');
     session_start();
-    if (empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+/*     if (empty($_SESSION['log']) || empty($_SESSION['mp'])) {
         header("Location: connexio.php");
         die();
-    }
+    } */
 ?>
 <html>
-    <head>
-        <title>Consulter Categorie</title>
-    </head>
+	<head>
+        <?php
+            include '../../includes/head.php';
+        ?>
+		<title>Edit Category</title>
+	</head>
     <?php
-        include("include/header.php");
-        include("include/nav.php");
+        include '../../includes/header.php';
+        include '../includes/navbar.php';
     ?>
     <body>
         <section>
@@ -22,9 +25,9 @@
                 // La creation du formulaire
                 echo '<form name="categorieconsulter" action="categorieModifier.php" method="POST">';
                     // La liste deroulante
-                    $select = mysql_query("SELECT cat_code, cat_libelle FROM categorie");
+                    $select = $bdd->query("SELECT cat_code, cat_libelle FROM categorie");
                     echo '<select name="cat_libelle">';
-                        while($cat_libelle = mysql_fetch_array($select)) {
+                        while($cat_libelle = $select->fetch()) {
                             echo "<option>";
                                 echo $cat_libelle['cat_libelle'];
                             echo '</option>';
@@ -35,11 +38,12 @@
                         $cat_libelle = $_POST["cat_libelle"];
                     }
                     // La creation du table
+
                     $sql = "SELECT cat_code, cat_libelle FROM categorie WHERE cat_libelle ='$cat_libelle'";
-                    $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+                    $req = $bdd->query($sql);
                     $catcode = "";
                     $catlibelle = "";
-                    while($data = mysql_fetch_assoc($req)) {
+                    while($data = $req->fetch()) {
                         $catcode = $data['cat_code'];
                         $catlibelle = $data['cat_libelle'];
                     }
@@ -71,11 +75,11 @@
                       echo("La mise à jour a échouée") ;
                     }
                 }
-                mysql_close();
+                $req-> CloseCursor();
             ?>
         </section>
     </body>
     <?php
-        include("include/footer.php");
+        include("../../includes/footer.php");
     ?>
 </html>

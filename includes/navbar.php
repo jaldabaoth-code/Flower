@@ -2,7 +2,7 @@
     <ul class="navbar-ul">
         <li class="navbar-li"><a href="index.php">Home</a></li>
         <?php
-            $rep = $bdd->query('SELECT * FROM category');
+            $rep = $bdd->query('SELECT * FROM categorie');
             while ($ligne = $rep->fetch()) {
                 echo '<li class="navbar-li"><a href="listepdt.php?categ=' . $ligne['cat_code'],'">' . $ligne['cat_libelle'],'</a></li>';
             }

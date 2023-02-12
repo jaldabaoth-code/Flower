@@ -9,17 +9,19 @@
 ?>
 <html>
 	<head>
-		<title>Accueil Société Lafleur</title>
+        <?php
+            include '../includes/head.php';
+        ?>
+		<title>Admin Home</title>
 	</head>
-	<?php
-        include("include/header.php");
-        include("include/nav.php");
+    <?php
+        include '../includes/header.php';
+        include '../includes/navbar.php';
     ?>
 	<body>
 		<section>
-			<h3>"Dites-le avec Lafleur"</h3>
+			<h3>Admin Panel</h3>
 			<img src="images/accueil.jpg" alt="Page d'accueil">
-			<h4>Pour recevoir un bon de commande</br>Appelez notre service commercial au 03.22.84.65.74</h4>
 		</section>
 		<footer>
 			<?php
