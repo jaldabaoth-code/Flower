@@ -13,15 +13,7 @@ h1 	{
 	text-decoration: underline;
 }
 
-.title-street, .title-city {
-	font-size: large;
-	font-weight: bold;
-	padding-top: 20px;
-}
 
-.title-city {
-	padding-bottom: 30px;
-}
 
 ul {
     margin: 0;

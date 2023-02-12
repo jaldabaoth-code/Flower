@@ -6,8 +6,9 @@
     ?>
     <head>
         <title>Bulbes Société Lafleur</title>
-        <meta charset="utf-8"/>
-        <link type="text/css" rel="stylesheet" href="assets/styles/style.css" />
+        <?php
+            include 'includes/head.php';
+        ?>
     </head>
     <body>
     <?php
