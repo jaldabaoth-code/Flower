@@ -24,21 +24,30 @@
             <!-- Liste deroulante -->
             <form name="produitsupprimer" action="produitSupprimer.php" method="POST">
                 <?php             
-                    $select = $bdd->query("SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit");
-                    echo '<select name="pdt_designation">';
-                        while($pdt_designation = $select->fetch()) {
-                            echo "<option>";
-                                echo $pdt_designation['pdt_designation'];
-                            echo '</option>';
-                        }
-                    echo '</select>';
-                    if (isset($_POST['pdt_designation'])) {
-                        $pdt_designation = $_POST["pdt_designation"];   
-                    }
-                    // Requete de suppression
-                    $sql = "DELETE FROM produit WHERE pdt_designation = '$pdt_designation'"; 
-                    $requete = $bdd->query($sql) or die(mysql_error());
-                    echo '<input type="submit" value="SUPPRIMER">';
+                    $sql = 'SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit';
+					$statement = $bdd->query($sql);
+					$produits = $statement->fetchAll(PDO::FETCH_ASSOC);
+					if ($produits) {
+						// show the publishers
+						echo '<select name="pdt_designation">';
+							foreach ($produits as $produit) {
+								echo "<option>";
+									echo $produit['pdt_designation'];
+								echo '</option>';
+							}
+						echo '</select>';
+					}
+					if (isset($_POST['pdt_designation'])) {
+						$pdt_designation = $_POST["pdt_designation"];   
+					}
+					// Requete de suppression
+					$sql = 'DELETE FROM produit WHERE pdt_designation = :pdt_designatione';
+					$statement = $bdd->prepare($sql);
+					$statement->bindParam(':pdt_designatione', $pdt_designation, PDO::PARAM_STR);
+					echo '<input type="submit" value="SUPPRIMER">';
+					if ($statement->execute()) {
+						echo 'cat libelle ' . $pdt_designation . ' was deleted successfully.';
+					}
                 ?> 
             </form>
         </section>

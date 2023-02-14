@@ -42,15 +42,22 @@
 						<td>Categorie Produit : </td>
             			<td>
               				<?php
-                				$select = $bdd->query("SELECT cat_code FROM categorie");
-								echo '<select name="pdt_categorie">';
-									while($pdt_categorie = $select->fetch()) {
+								$sql = 'SELECT cat_code, cat_libelle FROM categorie';
+								$statement = $bdd->query($sql);
+				
+								$categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+				
+								if ($categories) {
+									// show the publishers
+									echo '<select name="cat_libelle">';
+									foreach ($categories as $categorie) {
 										echo "<option value=$pdt_categorie[cat_code]>";
-										echo $pdt_categorie['cat_code'];
-										echo '</option>';      
+											echo $categorie['cat_code'] . '<br>';
+										echo '</option>';
 									}
-								echo '</select>';
-              				?>
+									echo '</select>';
+								}
+	              				?>
             			</td>
           			</tr>
 					<tr>
@@ -59,27 +66,27 @@
       			</table>
     		</form>
     		<?php
-      			if (!empty($_POST['pdt_ref'])) {
+				// Insertion d'un produit
+				if (!empty($_POST['pdt_ref'])) {
 					$pdt_ref = $_POST["pdt_ref"];
 					$pdt_designation = $_POST["pdt_designation"];
 					$pdt_prix = $_POST["pdt_prix"];
 					$pdt_image = $_POST["pdt_image"];
 					$pdt_categorie = $_POST["pdt_categorie"];
-       				$sql = "INSERT INTO produit (pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie) VALUES ('$pdt_ref', '$pdt_designation', '$pdt_prix', '$pdt_image', '$pdt_categorie')";
-       				$requete = mysql_query($sql, $cnx) or die(mysql_error());
 
-       				$sql = "INSERT INTO produit (pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie) VALUES (:pdt_ref, :pdt_designation, :pdt_prix, :pdt_image, :pdt_categorie)";
-					$stmt = $db->prepare($sql);
+					$sql = "INSERT INTO produit (pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie) VALUES (:pdt_ref, :pdt_designation, :pdt_prix, :pdt_image, :pdt_categorie)";
+
+					$stmt = $bdd->prepare($sql);
 					$req = $stmt->execute([
-						':pdt_ref' => $pdt_ref
-
+						':pdt_ref' => $pdt_ref,
+						':pdt_designation' => $pdt_designation,
+						':pdt_prix' => $pdt_prix,
+						':pdt_image' => $pdt_image,
+						':pdt_categorie' => $pdt_categorie
 					]);
-					if ($requete) {
-						echo("L'insertion a été correctement effectuée");
-					} else {
-						echo("L'insertion à échouée") ;
-					}
-   		  		}
+					$publisher_id = $bdd->lastInsertId();
+					echo 'The publisher id ' . $publisher_id . ' was inserted';
+				}
    			?>
 		</section>
 	</body>

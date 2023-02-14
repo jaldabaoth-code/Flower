@@ -47,10 +47,7 @@
                     }
           
                     $sql = 'SELECT * FROM categorie WHERE cat_libelle =:cat_libelle';
-                    $statement = $db->prepare($sql);
-          /*           $statement->bindParam(':cat_code', $cat_code, PDO::PARAM_STR); */
-                    $statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_STR);
-                    $statement->execute();
+                    $statement = $bdd->query($sql);
                     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
           
                     foreach ($categories as $categorie) {
