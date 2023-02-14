@@ -42,13 +42,15 @@
 				if (!empty($_POST['cat_code'])) {
 					$cat_code = $_POST["cat_code"];
 					$cat_libelle = $_POST["cat_libelle"];
-					$sql = "INSERT INTO categorie (cat_code, cat_libelle) VALUES ('$cat_code', '$cat_libelle')";
-					$req = mysql_query($sql, $cnx) or die(mysql_error());
-					if ($req) {
-						echo("Insertion was successful") ;
-					} else {
-						echo("Insert failed") ;
-					}
+					$sql = 'INSERT INTO categorie (cat_code, cat_libelle) VALUES (:cat_code, :cat_libelle)';
+					$stmt = $bdd->prepare($sql);
+					$req = $stmt->execute([
+						':cat_code' => $cat_code,
+						':cat_libelle' => $cat_libelle,
+					]);
+					$publisher_id = $bdd->lastInsertId();
+
+					echo 'The publisher id ' . $publisher_id . ' was inserted';
 				}
 			?>
 		</section>

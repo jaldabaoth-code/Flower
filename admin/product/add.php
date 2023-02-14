@@ -3,11 +3,11 @@
 	include ('include/conf.php');
 
   session_start();
-  if(empty($_SESSION['log']) || empty($_SESSION['mp']))
+/*   if(empty($_SESSION['log']) || empty($_SESSION['mp']))
   {
     header("Location: connexio.php");
     die();
-  }
+  } */
 ?>
 <html>
 	<head>
@@ -42,9 +42,9 @@
 						<td>Categorie Produit : </td>
             			<td>
               				<?php
-                				$select = mysql_query("SELECT cat_code FROM categorie");
+                				$select = $bdd->query("SELECT cat_code FROM categorie");
 								echo '<select name="pdt_categorie">';
-									while($pdt_categorie = mysql_fetch_array($select)) {
+									while($pdt_categorie = $select->fetch()) {
 										echo "<option value=$pdt_categorie[cat_code]>";
 										echo $pdt_categorie['cat_code'];
 										echo '</option>';      
@@ -67,6 +67,13 @@
 					$pdt_categorie = $_POST["pdt_categorie"];
        				$sql = "INSERT INTO produit (pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie) VALUES ('$pdt_ref', '$pdt_designation', '$pdt_prix', '$pdt_image', '$pdt_categorie')";
        				$requete = mysql_query($sql, $cnx) or die(mysql_error());
+
+       				$sql = "INSERT INTO produit (pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie) VALUES (:pdt_ref, :pdt_designation, :pdt_prix, :pdt_image, :pdt_categorie)";
+					$stmt = $db->prepare($sql);
+					$req = $stmt->execute([
+						':pdt_ref' => $pdt_ref
+
+					]);
 					if ($requete) {
 						echo("L'insertion a été correctement effectuée");
 					} else {

@@ -25,21 +25,33 @@
 			<!-- Liste deroulante -->
 			<form name="categoriesupprimer" action="categorieSupprimer.php" method="POST">
 				<?php             
-					$select = $bdd->query("SELECT cat_code, cat_libelle FROM categorie");
-					echo '<select name="cat_libelle">';
-						while($cat_libelle = $select->fetch()) {
-							echo "<option>";
-								echo $cat_libelle['cat_libelle'];
-							echo '</option>';
-						}
-					echo '</select>';
+					$sql = 'SELECT cat_code, cat_libelle FROM categorie';
+					$statement = $bdd->query($sql);
+					$categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+					if ($categories) {
+						// show the publishers
+						echo '<select name="cat_libelle">';
+							foreach ($categories as $categorie) {
+							/*    echo $categorie['cat_libelle'] . '<br>'; */
+								echo "<option>";
+									echo $categorie['cat_libelle'];
+								echo '</option>';
+							}
+						echo '</select>';
+						echo '<input type="submit" value="CONSULTER">';
+					}
 					if (isset($_POST['cat_libelle'])) {
 						$cat_libelle = $_POST["cat_libelle"];   
 					}
 					// Requete de suppression
-					$sql = "DELETE FROM categorie WHERE cat_libelle = '$cat_libelle'"; 
-					$requete = $bdd->query($sql);
+					$sql = 'DELETE FROM categorie WHERE cat_libelle = :cat_libelle';
+					$statement = $bdd->prepare($sql);
+					$statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_STR);
+					/* $requete = mysql_query($sql) or die(mysql_error()); */
 					echo '<input type="submit" value="SUPPRIMER">';
+					if ($statement->execute()) {
+						echo 'cat libelle ' . $cat_libelle . ' was deleted successfully.';
+					}
 				?> 
 			</form>
 		</section>

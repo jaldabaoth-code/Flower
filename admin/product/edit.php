@@ -2,10 +2,10 @@
 <?php
     include ('include/conf.php');
     session_start();
-    if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+/*     if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
         header("Location: connexio.php");
         die();
-    }
+    } */
 ?>
 <html>
     <head>
@@ -22,9 +22,9 @@
                 // La creation du formulaire
                 echo '<form name="categorieconsulter" action="produitModifier.php" method="POST">';
                     // La liste deroulante
-                    $select = mysql_query("SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit");
+                    $select = $bdd->query("SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit");
                     echo '<select name="pdt_ref">';
-                        while($pdt_ref = mysql_fetch_array($select)) {
+                        while($pdt_ref = $select->fetch()) {
                           echo "<option>";
                               echo $pdt_ref['pdt_ref'];
                           echo '</option>';
@@ -36,7 +36,7 @@
                     }
                     // La creation du table
                     $sql = "SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit WHERE pdt_ref ='$pdt_ref'";
-                    $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+                    $req = $bdd->query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
                     $pdtref = "";
                     $pdtdesignation = "";
                     $pdtprix = "";
