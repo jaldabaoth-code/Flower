@@ -29,10 +29,9 @@
 					$statement = $bdd->query($sql);
 					$categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 					if ($categories) {
-						// show the publishers
+						// Show the publishers
 						echo '<select name="cat_libelle">';
 							foreach ($categories as $categorie) {
-							/*    echo $categorie['cat_libelle'] . '<br>'; */
 								echo "<option>";
 									echo $categorie['cat_libelle'];
 								echo '</option>';
@@ -47,7 +46,6 @@
 					$sql = 'DELETE FROM categorie WHERE cat_libelle = :cat_libelle';
 					$statement = $bdd->prepare($sql);
 					$statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_STR);
-					/* $requete = mysql_query($sql) or die(mysql_error()); */
 					echo '<input type="submit" value="SUPPRIMER">';
 					if ($statement->execute()) {
 						echo 'cat libelle ' . $cat_libelle . ' was deleted successfully.';
