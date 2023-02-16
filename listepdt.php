@@ -28,12 +28,14 @@
                     </tr>
                     <?php
                         $categ = $_GET['categ'];
-                        $rep = $bdd->query("SELECT * FROM produit where pdt_categorie='$categ'");
-                        while ($ligne = $rep->fetch()) {
+                        $sql = 'SELECT * FROM produit where pdt_categorie=:categ';
+                        $statement = $bdd->prepare($sql);
+                        $statement->bindParam(':categ', $categ, PDO::PARAM_INT);
+                        $statement->execute();
+                        $categori = $statement->fetch(PDO::FETCH_ASSOC);
+                        foreach ($categories as $ligne) {
                             echo '<tr>';
                                 echo "<td><img src=./assets/images/" . $ligne['pdt_image'] . ".jpg></td>";
-                                
-
                                 echo "<td>" . $ligne['pdt_ref'] . "<input type='hidden' name='reference' value='$ligne[pdt_ref]'></td>";
                                 echo "<td>" . $ligne['pdt_designation'] . "<input type='hidden' name='productName' value='$ligne[pdt_designation]'></td>";
                                 echo "<td>" . $ligne['pdt_prix'] . "<input type='hidden' name='unitPrice' value='$ligne[pdt_prix]'></td>";

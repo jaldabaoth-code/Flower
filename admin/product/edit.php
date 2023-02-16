@@ -32,10 +32,10 @@
                     if ($produits) {
                         // show the publishers
                         echo '<select name="pdt_ref">';
-                            foreach ($produits as produit) {
-                            echo "<option>";
-                                echo $produit['pdt_ref'];
-                            echo '</option>';
+                            foreach ($produits as $produit) {
+                                echo "<option>";
+                                    echo $produit['pdt_ref'];
+                                echo '</option>';
                             }
                         echo '</select>';
                         echo '<input type="submit" value="CONSULTER">';

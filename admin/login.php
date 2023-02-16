@@ -30,11 +30,13 @@
                 if ($_POST && isset($_POST['login'])) { 
                     // Preparing a statement
                     $stmt = $bdd->prepare("SELECT * FROM identification WHERE login = ?  AND `mdp`=? ");
-                    // Execute/run the statement. 
-                    $stmt->execute(array($_POST['login'], $_POST['password']));
-                    // Fetch the result. 
-                    $identification = $stmt->fetch(); 
-                    var_dump($identification); 
+
+					$sql = 'SELECT * FROM identification WHERE login=:login AND mdp=:mdp';
+					$statement = $bdd->prepare($sql);
+					$statement->bindParam(':login', $_POST['login']);
+					$statement->bindParam(':mdp', $_POST['password']);
+					$statement->execute();
+					$identification = $statement->fetch(PDO::FETCH_ASSOC);
                     $_SESSION['log']=$identification['login'];
                     $_SESSION['mp']=$identification['mdp'];
                     if (isset($_SESSION['log'], $_SESSION['mp'])) {

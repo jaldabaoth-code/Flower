@@ -2,14 +2,12 @@
 <?php
     include ('../../includes/conf.php');
     session_start();
-/*     if(empty($_SESSION['log']) || empty($_SESSION['mp']))
-    {
+/*     if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
         header("Location: connexio.php");
         die();
     } */
 ?>
 <html>
-
     <head>
         <?php
             include '../../includes/head.php';
