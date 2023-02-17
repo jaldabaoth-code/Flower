@@ -45,9 +45,11 @@
                     if (isset($_POST['cat_libelle'])) {
                         $cat_libelle = $_POST["cat_libelle"];
                     }
-          
+
                     $sql = 'SELECT * FROM categorie WHERE cat_libelle =:cat_libelle';
-                    $statement = $bdd->query($sql);
+                    $statement = $bdd->prepare($sql);
+                    $statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_INT);
+                    $statement->execute();
                     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
           
                     foreach ($categories as $categorie) {

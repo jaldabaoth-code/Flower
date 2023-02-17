@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
-	include ('include/conf.php');
-
-  session_start();
+    include ('../../includes/conf.php');
+    session_start();
 /*   if(empty($_SESSION['log']) || empty($_SESSION['mp']))
   {
     header("Location: connexio.php");

@@ -32,7 +32,7 @@
                         echo '<select name="cat_libelle">';
                         foreach ($categories as $categorie) {
                             echo "<option>";
-                                echo $cat_libelle['cat_libelle'] . '<br>';
+                                echo $categorie['cat_libelle'] . '<br>';
                             echo '</option>';
                         }
                         echo '</select>';
@@ -40,13 +40,8 @@
                     echo '<input type="submit" value="CONSULTER">';
                 echo '</form>';
                 if (isset($_POST['cat_libelle'])) {
-                    $cat_libelle = $_POST["cat_libelle"];   
+                    $categorie = $_POST["cat_libelle"];   
                 }
-
-                $sql = "SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit, categorie WHERE categorie.cat_code = produit.pdt_categorie AND cat_libelle ='$cat_libelle'";
-                $req = $bdd->query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
-
-
                 $sql = 'SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit, categorie WHERE categorie.cat_code = produit.pdt_categorie AND cat_libelle = :cat_libelle';
                 $statement = $bdd->prepare($sql);
                 $statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_INT);

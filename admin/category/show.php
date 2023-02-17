@@ -34,7 +34,7 @@
                     echo '<select name="cat_libelle">';
                     foreach ($categories as $categorie) {
                         echo "<option>";
-                            echo $cat_libelle['cat_libelle'] . '<br>';
+                            echo $categorie['cat_libelle'] . '<br>';
                         echo '</option>';
                     }
                     echo '</select>';
