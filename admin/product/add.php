@@ -89,7 +89,7 @@
    			?>
 		</section>
 	</body>
-	<?php
-		include("include/footer.php");
-	?> 
+    <?php
+        include("../../includes/footer.php");
+    ?>
 </html>

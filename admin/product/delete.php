@@ -53,6 +53,6 @@
         </section>
     </body>
     <?php
-        include("include/footer.php");
+        include("../../includes/footer.php");
     ?>
 </html>
