@@ -23,19 +23,11 @@
 			<h3>Add a new Category</h3>
       		<!-- La creation du formulaire -->
 			<form name="categorieajouter" action="categorieAjouter.php" method="POST">
-				<table name="cateajouter">
-				<tr>
-					<td>Code Category : </td>
-					<td><input type="text" name="cat_code"></td>
-				</tr>
-				<tr>
-					<td>Category : </td>
-					<td><input type="text" name="cat_libelle"></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="AJOUTER"></td>
-				</tr>
-				</table>
+				Code Category :
+				<input type="text" name="cat_code">
+				Category :
+				<input type="text" name="cat_libelle">
+				<input type="submit" value="AJOUTER">
 			</form>
 			<?php
 				// Insertion d'une Categorie
