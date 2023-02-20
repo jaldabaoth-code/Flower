@@ -40,7 +40,7 @@
                     $_SESSION['log']=$identification['login'];
                     $_SESSION['mp']=$identification['mdp'];
                     if (isset($_SESSION['log'], $_SESSION['mp'])) {
-                        header('Location: adminHome.php');
+                        header('Location: admin.php');
                         exit();
                     } else {
                         echo "Authentification incorrecte! (login ou password erroné ...)";

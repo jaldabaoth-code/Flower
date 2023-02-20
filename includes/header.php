@@ -1,6 +1,6 @@
 <header>
     <div class="header-left-side">
-        <a href="../admin/adminHome.php"><img class="header-admin-icon" src="../assets/images/admin.png" title="Admin panel" alt="Admin panel icon"></a>
+        <a href="../admin/admin.php"><img class="header-admin-icon" src="../assets/images/admin.png" title="Admin panel" alt="Admin panel icon"></a>
     </div>
     <div class="header-center-side">
         <h1>Company - The Flower</h1>

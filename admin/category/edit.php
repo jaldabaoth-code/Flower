@@ -23,7 +23,7 @@
             <h3>Consulter les Categories</h3>
             <?php
                 // La creation du formulaire
-                echo '<form name="categorieconsulter" action="categorieModifier.php" method="POST">';
+                echo '<form name="categorieconsulter" action="edit.php" method="POST">';
                     // La liste deroulante
                     $sql = 'SELECT cat_code, cat_libelle FROM categorie';
                     $statement = $bdd->query($sql);

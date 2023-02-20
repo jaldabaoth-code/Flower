@@ -23,7 +23,7 @@
         <h3>View Categories</h3>
         <?php
             // La creation du formulaire
-            echo '<form name="categorieconsulter" action="category.php" method="POST">';
+            echo '<form name="categorieconsulter" action="show.php" method="POST">';
                 $sql = 'SELECT cat_code, cat_libelle FROM categorie';
                 $statement = $bdd->query($sql);
 
