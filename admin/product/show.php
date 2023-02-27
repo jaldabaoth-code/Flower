@@ -2,10 +2,10 @@
 <?php
     include ('../../includes/conf.php');
     session_start();
-/*     if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+    if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
         header("Location: connexio.php");
         die();
-    } */
+    }
 ?>
 <html>
     <head>
@@ -20,12 +20,10 @@
     ?>
 	<body>
         <section>
-            <h3>Consulter les Produits</h3>
+            <h3>Consult the Products</h3>
             <?php
-                echo '<form name="produitconsulter" action="produit.php" method="POST">';
-                    $select = $bdd->query("SELECT cat_code, cat_libelle FROM categorie");
-                    $sql = 'SELECT cat_code, cat_libelle FROM categorie';
-                    $statement = $bdd->query($sql);
+                echo '<form name="produitconsulter" action="product.php" method="POST">';
+                    $statement = $bdd->query('SELECT * FROM categorie');
                     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
                     if ($categories) {
                         // show the publishers
@@ -42,7 +40,7 @@
                 if (isset($_POST['cat_libelle'])) {
                     $categorie = $_POST["cat_libelle"];   
                 }
-                $sql = 'SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit, categorie WHERE categorie.cat_code = produit.pdt_categorie AND cat_libelle = :cat_libelle';
+                $sql = 'SELECT * FROM produit, categorie WHERE categorie.cat_code = produit.pdt_categorie AND cat_libelle = :cat_libelle';
                 $statement = $bdd->prepare($sql);
                 $statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_INT);
                 $statement->execute();

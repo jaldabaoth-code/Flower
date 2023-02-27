@@ -2,10 +2,10 @@
 <?php
     include ('../../includes/conf.php');
 	session_start();
-/* 	if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+	if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
 		header("Location: connexio.php");
 		die();
-	} */
+	}
 ?>
 <html>
 	<head>
@@ -20,17 +20,13 @@
     ?>
 	<body>
 		<section>
-			<h3>Add a new Category</h3>
-      		<!-- La creation du formulaire -->
+			<h3>Add Category</h3>
 			<form name="categorieajouter" action="categorieAjouter.php" method="POST">
-				Code Category :
-				<input type="text" name="cat_code">
-				Category :
-				<input type="text" name="cat_libelle">
+				Code Category : <input type="text" name="cat_code">
+				Category : <input type="text" name="cat_libelle">
 				<input type="submit" value="AJOUTER">
 			</form>
 			<?php
-				// Insertion d'une Categorie
 				if (!empty($_POST['cat_code'])) {
 					$cat_code = $_POST["cat_code"];
 					$cat_libelle = $_POST["cat_libelle"];

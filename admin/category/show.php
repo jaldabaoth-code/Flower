@@ -2,10 +2,10 @@
 <?php
     include ('../../includes/conf.php');
     session_start();
-/*     if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+    if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
         header("Location: connexio.php");
         die();
-    } */
+    }
 ?>
 <html>
     <head>
@@ -22,53 +22,35 @@
 		<section>
         <h3>View Categories</h3>
         <?php
-            // La creation du formulaire
+            /* The list of categories */
             echo '<form name="categorieconsulter" action="show.php" method="POST">';
-                $sql = 'SELECT cat_code, cat_libelle FROM categorie';
-                $statement = $bdd->query($sql);
-
+                $statement = $bdd->query('SELECT * FROM categorie');
                 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
-
                 if ($categories) {
-                    // show the publishers
-                    echo '<select name="cat_libelle">';
-                    foreach ($categories as $categorie) {
-                        echo "<option>";
-                            echo $categorie['cat_libelle'] . '<br>';
-                        echo '</option>';
-                    }
+                    echo '<select name="cat_code">';
+                        foreach ($categories as $categorie) {
+                            echo "<option value=" . $categorie['cat_code'] . ">";
+                                echo $categorie['cat_libelle'];
+                            echo '</option>';
+                        }
                     echo '</select>';
                 }
-                echo '<input type="submit" value="CONSULTER">';
+                echo '<input type="submit" value="Consult">';
             echo '</form>';
-            if (isset($_POST['cat_libelle'])) {
-                $cat_libelle = $_POST["cat_libelle"];
-            }
-
-            $sql = 'SELECT cat_code, cat_libelle FROM categorie WHERE cat_libelle = :cat_libelle';
-            $statement = $bdd->prepare($sql);
-            $statement->bindParam(':cat_libelle', $cat_libelle, PDO::PARAM_INT);
-            $statement->execute();
-            $categori = $statement->fetch(PDO::FETCH_ASSOC);
-
-            if ($categori) {
-                echo $categori['cat_libelle'] . '.' . $categori['cat_code'];
-            } else {
-                echo "The publisher with id $cat_libelle was not found.";
-            }
-
-            echo'<table>';
-                echo '<tr>';
-                    echo '<th>Code Categorie</th>';
-                    echo '<th>Libelle Categorie</th>';
-                echo '</tr>';
-                while($data = $categori) {
-                    echo '<tr>';
-                        echo '<td>'.$data['cat_code'].'</td>';
-                        echo '<td>'.$data['cat_libelle'].'</td>';
-                    echo '</tr>';
+            if (isset($_POST['cat_code'])) {
+                $categoryCode = $_POST["cat_code"];
+                $categoryName = $_POST["cat_libelle"];
+                $statement = $bdd->prepare('SELECT * FROM categorie WHERE cat_code = :cat_code');
+                $statement->bindParam(':cat_code', $cat_code, PDO::PARAM_INT);
+                $statement->execute();
+                $category = $statement->fetch(PDO::FETCH_ASSOC);
+                if ($category) {
+                    echo '<h4>Code Categorie : ' . $category['cat_code'] . '</h4>';
+                    echo '<h4>Libelle Categorie : ' . $category['cat_libelle'] . '</h4>';
+                } else {
+                    echo "The publisher with $cat_libelle was not found.";
                 }
-            echo '</table>';
+            }
         ?>
 		</section>
     </body>
