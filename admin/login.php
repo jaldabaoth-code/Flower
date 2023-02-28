@@ -3,7 +3,7 @@
 	<?php
 		include ('../includes/conf.php');
 		session_start();
-		if(isset($_SESSION['log'], $_SESSION['mp'])) {
+		if (isset($_SESSION['login'], $_SESSION['password'])) {
 			header("Location: admin.php");
 			die();
 		}
@@ -12,6 +12,7 @@
         <?php
             include '../includes/head.php';
         ?>
+		<link type="text/css" rel="stylesheet" href="../assets/styles/admin/login.css">
 		<title>Admin Login</title>
 	</head>
     <?php
@@ -20,22 +21,26 @@
     ?>
 	<body>
 		<section>
-			<form class="form-autentification" method="POST">
-				<h2>Authentification</h2>
-				<input class="admin-login" type="text" name="login" placeholder="Login" required>
-				<input class="admin-password" type="password" name="password" placeholder="Password" required>
-				<input class="admin-submit" type="submit" value="Login">
+			<h2>Authentification</h2>
+			<form class="form-autentification d-flex flex-column align-items-center" method="POST">
+				<div class="form-group col-8 my-3">
+					<input type="login" class="form-control" name="login" placeholder="Enter login" required>
+				</div>
+				<div class="form-group col-8 my-3">
+					<input type="password" class="form-control" name="password" placeholder="Password" required>
+				</div>
+				<button type="submit" class="btn btn-primary col-8 my-2" value="Login">Submit</button>
 			</form>
 			<?php
                 if ($_POST && isset($_POST['login'])) { 
-					$statement = $bdd->prepare('SELECT * FROM identification WHERE login=:login AND mdp=:mdp');
+					$statement = $bdd->prepare('SELECT * FROM user WHERE login=:login AND password=:password');
 					$statement->bindParam(':login', $_POST['login']);
-					$statement->bindParam(':mdp', $_POST['password']);
+					$statement->bindParam(':password', $_POST['password']);
 					$statement->execute();
 					$identification = $statement->fetch(PDO::FETCH_ASSOC);
-                    if (isset($identification['login'], $identification['mdp'])) {
-						$_SESSION['log']=$identification['login'];
-						$_SESSION['mp']=$identification['mdp'];
+                    if (isset($identification['login'], $identification['password'])) {
+						$_SESSION['login']=$identification['login'];
+						$_SESSION['password']=$identification['password'];
                         header('Location: admin.php');
                         exit();
                     } else {
