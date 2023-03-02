@@ -52,5 +52,6 @@ CREATE TABLE IF NOT EXISTS `user` (
     `id` int NOT NULL AUTO_INCREMENT,
     `login` varchar(10) NOT NULL,
     `password` varchar(10) NOT NULL,
+    `role` varchar(10) NOT NULL,
     CONSTRAINT `C1` PRIMARY KEY (`id`)
 );
