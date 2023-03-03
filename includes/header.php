@@ -170,7 +170,7 @@
   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
   <div id="id01" class="modal">
       
-      <form class="modal-content animate" action="/action_page.php" method="post">
+      <form class="modal-content animate form-autentification" action="/action_page.php" method="POST">
           <div class="imgcontainer">
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
               <img src="../assets/images/admin.png" alt="Avatar" class="header-admin-icon">
@@ -178,18 +178,34 @@
 
           <div class="container">
               <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" placeholder="Enter login" name="login" required>
 
               <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" placeholder="Enter Password" name="password" required>
               
-              <button type="submit">Login</button>
+              <button type="submit" value="Login">Login</button>
           </div>
-
           <div class="container" style="background-color:#f1f1f1">
               <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
           </div>
       </form>
+			<?php
+                if ($_POST && isset($_POST['login'])) { 
+					$statement = $bdd->prepare('SELECT * FROM user WHERE login=:login AND password=:password');
+					$statement->bindParam(':login', $_POST['login']);
+					$statement->bindParam(':password', $_POST['password']);
+					$statement->execute();
+					$identification = $statement->fetch(PDO::FETCH_ASSOC);
+                    if (isset($identification['login'], $identification['password'])) {
+						$_SESSION['login']=$identification['login'];
+						$_SESSION['password']=$identification['password'];
+                        header('Location: admin.php');
+                        exit();
+                    } else {
+                        echo "Incorrect authentication! (Wrong login or password)";
+                    }
+                }
+			?>
   </div>
 
   <script>
