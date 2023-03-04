@@ -2,7 +2,7 @@
 <?php
 	include ('../includes/conf.php');
 	session_start();
-  	if (empty($_SESSION['log'])) {
+  	if (empty($_SESSION['login'])) {
     	header("Location: login.php");
     	die();
   	}
