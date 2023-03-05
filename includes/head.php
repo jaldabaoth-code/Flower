@@ -3,5 +3,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link type="text/css" rel="stylesheet" href="/assets/styles/style.css">
 <link type="text/css" rel="stylesheet" href="/assets/styles/header.css">
-<!-- <link type="text/css" rel="stylesheet" href="/assets/styles/navbar.css"> -->
-<link type="text/css" rel="stylesheet" href="/assets/styles/admin/navbar.css"> 
+<link type="text/css" rel="stylesheet" href="/assets/styles/navbar.css">
+<link type="text/css" rel="stylesheet" href="/assets/styles/login.css">
+<link type="text/css" rel="stylesheet" href="/assets/styles/admin/navbar.css">

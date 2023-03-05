@@ -2,6 +2,8 @@
 <?php
 	include ('../includes/conf.php');
 	session_start();
+	var_dump($_SESSION['login']);
+	//session_unset();
   	if (empty($_SESSION['login'])) {
     	header("Location: login.php");
     	die();

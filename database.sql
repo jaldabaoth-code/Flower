@@ -11,14 +11,14 @@ USE `lafleurv2`;
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
-  id char(3) NOT NULL,
-  name varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(50) NOT NULL,
+    PRIMARY KEY (id)
+);
 
-INSERT INTO category VALUES ('bul','Bulbes');
-INSERT INTO category VALUES ('mas','Plantes � massif');
-INSERT INTO category VALUES ('ros','Rosiers');
+INSERT INTO category (`name`) VALUES ('Bulbs');
+INSERT INTO category (`name`) VALUES ('Bedding plant');
+INSERT INTO category (`name`) VALUES ('Roses');
 
 CREATE TABLE product (
   id char(3) NOT NULL,
@@ -55,3 +55,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `role` varchar(10) NOT NULL,
     CONSTRAINT `C1` PRIMARY KEY (`id`)
 );
+
+INSERT INTO `user` (`login`, `password`, `role`) VALUES
+('test', 'test', 'ADMIN'),
+('zouzou', 'zouzou', 'ADMIN');

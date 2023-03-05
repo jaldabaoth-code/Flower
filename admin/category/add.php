@@ -2,7 +2,7 @@
 <?php
     include ('../../includes/conf.php');
 	session_start();
-	if(empty($_SESSION['log']) || empty($_SESSION['mp'])) {
+	if(empty($_SESSION['login']) || empty($_SESSION['password'])) {
 		header("Location: connexio.php");
 		die();
 	}
@@ -21,24 +21,23 @@
 	<body>
 		<section>
 			<h3>Add Category</h3>
-			<form name="categorieajouter" action="categorieAjouter.php" method="POST">
-				Code Category : <input type="text" name="cat_code">
-				Category : <input type="text" name="cat_libelle">
-				<input type="submit" value="AJOUTER">
+			<form name="add-category" action="categorieAjouter.php" method="POST">
+				Code Category : <input type="text" name="id">
+				Category : <input type="text" name="name">
+				<input type="submit" value="Add">
 			</form>
 			<?php
 				if (!empty($_POST['cat_code'])) {
-					$cat_code = $_POST["cat_code"];
-					$cat_libelle = $_POST["cat_libelle"];
-					$sql = 'INSERT INTO categorie (cat_code, cat_libelle) VALUES (:cat_code, :cat_libelle)';
-					$stmt = $bdd->prepare($sql);
-					$req = $stmt->execute([
-						':cat_code' => $cat_code,
-						':cat_libelle' => $cat_libelle,
+					$categoryId = $_POST["id"];
+					$categoryName = $_POST["name"];
+					$sql = 'INSERT INTO categorie (cat_code, cat_libelle) VALUES (:id, :name)';
+					$stmt = $dataBase->prepare($sql);
+					$result = $statement->execute([
+						':id' => $categoryId,
+						':name' => $categoryName,
 					]);
-					$publisher_id = $bdd->lastInsertId();
-
-					echo 'The publisher id ' . $publisher_id . ' was inserted';
+					$publisherCategoryId = $dataBase->lastInsertId();
+					echo 'The publisher id ' . $publisherCategoryId . ' was inserted';
 				}
 			?>
 		</section>
