@@ -22,8 +22,10 @@
 		<section>
 			<h3>Add Category</h3>
 			<form name="add-category" action="categorieAjouter.php" method="POST">
-				Code Category : <input type="text" name="id">
-				Category : <input type="text" name="name">
+				<label for="id">Code Category :</label>
+				<input type="text" name="id">
+				<label for="name">Category name :</label>
+				<input type="text" name="name">
 				<input type="submit" value="Add">
 			</form>
 			<?php

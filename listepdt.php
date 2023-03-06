@@ -28,7 +28,7 @@
                     </tr>
                     <?php
                         $categ = $_GET['categ'];
-                        $sql = 'SELECT * FROM produit where pdt_categorie=:categ';
+                        $sql = 'SELECT * FROM product where pdt_category=:categ';
                         $statement = $bdd->prepare($sql);
                         $statement->bindParam(':categ', $categ, PDO::PARAM_INT);
                         $statement->execute();
