@@ -51,11 +51,11 @@ CREATE DATABASE `flower`;
 USE `flower`;
 
 CREATE TABLE IF NOT EXISTS `user` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `login` varchar(10) NOT NULL UNIQUE,
-    `password` varchar(10) NOT NULL,
-    `role` varchar(10) NOT NULL,
-    CONSTRAINT `C1` PRIMARY KEY (`id`)
+    id int NOT NULL AUTO_INCREMENT,
+    login varchar(10) NOT NULL UNIQUE,
+    password varchar(10) NOT NULL,
+    role varchar(10) NOT NULL,
+    CONSTRAINT C1 PRIMARY KEY (`id`)
 );
 
 INSERT INTO `user` (`login`, `password`, `role`) VALUES
