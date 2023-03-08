@@ -1,13 +1,29 @@
 --
 -- Base de données: `lafleurv2`
 --
-CREATE DATABASE `lafleurv2` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `lafleurv2`;
+CREATE DATABASE `flower`;
+USE `flower`;
 
 -- --------------------------------------------------------
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+    id int NOT NULL AUTO_INCREMENT,
+    login varchar(10) NOT NULL UNIQUE,
+    password varchar(10) NOT NULL,
+    role varchar(10) NOT NULL,
+    CONSTRAINT C1 PRIMARY KEY (`id`)
+);
+
+INSERT INTO `user` (`login`, `password`, `role`) VALUES
+('test', 'test', 'ADMIN'),
+('zouzou', 'zouzou', 'ADMIN');
+
 
 --
--- Structure de la table `categorie`
+-- Structure de la table `category`
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
@@ -21,7 +37,9 @@ INSERT INTO category (`ref`, `name`) VALUES ('bul', 'Bulbs');
 INSERT INTO category (`ref`, `name`) VALUES ('mas', 'Bedding plant');
 INSERT INTO category (`ref`, `name`) VALUES ('ros', 'Roses');
 
----
+--
+-- Structure de la table `product`
+--
 
 CREATE TABLE IF NOT EXISTS `product` (
     id int NOT NULL AUTO_INCREMENT,
@@ -44,20 +62,4 @@ INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ro
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros02', 'Une vari�t� s�lectionn�e pour son parfum', 9.00,'rosiers_parfum', 'ros');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros03', 'Rosier arbuste', 8.00, 'rosiers_arbuste', 'ros');
 
---
--- Structure de la table `identification`
---
-CREATE DATABASE `flower`;
-USE `flower`;
 
-CREATE TABLE IF NOT EXISTS `user` (
-    id int NOT NULL AUTO_INCREMENT,
-    login varchar(10) NOT NULL UNIQUE,
-    password varchar(10) NOT NULL,
-    role varchar(10) NOT NULL,
-    CONSTRAINT C1 PRIMARY KEY (`id`)
-);
-
-INSERT INTO `user` (`login`, `password`, `role`) VALUES
-('test', 'test', 'ADMIN'),
-('zouzou', 'zouzou', 'ADMIN');
