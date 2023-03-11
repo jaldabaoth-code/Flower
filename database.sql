@@ -6,7 +6,7 @@ USE `flower`;
 
 -- --------------------------------------------------------
 --
--- Structure de la table `user`
+-- Table structure `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -23,7 +23,7 @@ INSERT INTO `user` (`login`, `password`, `role`) VALUES
 
 
 --
--- Structure de la table `category`
+-- Table structure `category`
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
