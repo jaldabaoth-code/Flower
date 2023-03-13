@@ -58,8 +58,8 @@ INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('bu
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('mas01', 'Set of 3 daisies', 5.00, 'massif_marguerite', 'mas');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('mas02', 'For a bouquet of 6 pansies', 6.00, 'massif_pensee', 'mas');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('mas03', 'M�lange vari� de 10 plantes � massif', 15.00,'massif_melange', 'mas');
-INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros01', '1 pied sp�cial grandes fleurs', 20.00, 'rosiers_gdefleur', 'ros');
-INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros02', 'Une vari�t� s�lectionn�e pour son parfum', 9.00,'rosiers_parfum', 'ros');
+INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros01', '1 pied spcial grandes fleurs', 20.00, 'rosiers_gdefleur', 'ros');
+INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros02', 'Une variete selectionnee pour son parfum', 9.00,'rosiers_parfum', 'ros');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros03', 'shrub rose', 8.00, 'rosiers_arbuste', 'ros');
 
 
