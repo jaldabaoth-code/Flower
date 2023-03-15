@@ -59,7 +59,7 @@ INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ma
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('mas02', 'For a bouquet of 6 pansies', 6.00, 'massif_pensee', 'mas');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('mas03', 'Varied mix of 10 massive plants', 15.00,'massif_melange', 'mas');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros01', '1 special large flower foot', 20.00, 'rosiers_gdefleur', 'ros');
-INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros02', 'Une variete selectionnee pour son parfum', 9.00,'rosiers_parfum', 'ros');
+INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros02', 'A variety selected for its fragrance', 9.00,'rosiers_parfum', 'ros');
 INSERT INTO product (`ref`, `name`, `price`, `image`, `category_id`) VALUES ('ros03', 'shrub rose', 8.00, 'rosiers_arbuste', 'ros');
 
 
