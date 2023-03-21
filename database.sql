@@ -1,5 +1,5 @@
 --
--- Base de données: `flower`
+-- Data base: `flower`
 --
 CREATE DATABASE `flower`;
 USE `flower`;
