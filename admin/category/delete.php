@@ -21,7 +21,7 @@
     ?>
 	<body>
 		<section>
-			<h3>Supprimer une categorie</h3>
+			<h3>Delete Category</h3>
 			<!-- Liste deroulante -->
 			<form name="categoriesupprimer" action="categorieSupprimer.php" method="POST">
 				<?php             
