@@ -20,7 +20,7 @@
     ?>
     <body>
         <section>
-            <h3>Consulter les Categories</h3>
+            <h3>Edit Category</h3>
             <?php
                 // La creation du formulaire
                 echo '<form name="categorieconsulter" action="edit.php" method="POST">';
