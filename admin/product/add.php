@@ -10,7 +10,7 @@
 ?>
 <html>
 	<head>
-		<title>Ajouter Produit</title>
+		<title>Add Product</title>
 	</head>
 	<?php
         include("include/header.php");
