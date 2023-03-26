@@ -20,7 +20,7 @@
     ?>
     <body>
         <section>
-            <h3>Supprimer un produit</h3>
+            <h3>Delete Product</h3>
             <!-- Liste deroulante -->
             <form name="produitsupprimer" action="produitSupprimer.php" method="POST">
                 <?php             
