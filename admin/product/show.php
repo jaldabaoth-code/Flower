@@ -12,7 +12,7 @@
         <?php
             include '../../includes/head.php';
         ?>
-        <title>Produit</title>
+        <title>Show Product</title>
     </head>
     <?php
         include '../../includes/header.php';
@@ -20,7 +20,7 @@
     ?>
 	<body>
         <section>
-            <h3>Consult the Products</h3>
+            <h3>Show Product</h3>
             <?php
                 echo '<form name="produitconsulter" action="product.php" method="POST">';
                     $statement = $bdd->query('SELECT * FROM categorie');
