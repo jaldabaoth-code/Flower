@@ -20,7 +20,7 @@
     ?>
     <body>
         <section>
-            <h3>Consulter les Produits</h3>
+            <h3>Edit Produit</h3>
             <?php
                 // La creation du formulaire
                 echo '<form name="produitconsulter" action="produitModifier.php" method="POST">';
