@@ -12,7 +12,7 @@
         <?php
             include '../../includes/head.php';
         ?>
-		<title>Edit Produit</title>
+		<title>Edit Product</title>
 	</head>
     <?php
         include '../../includes/header.php';
@@ -20,7 +20,7 @@
     ?>
     <body>
         <section>
-            <h3>Edit Produit</h3>
+            <h3>Edit Product</h3>
             <?php
                 // La creation du formulaire
                 echo '<form name="produitconsulter" action="produitModifier.php" method="POST">';
