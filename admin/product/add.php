@@ -18,7 +18,7 @@
     ?>
 	<body>
 		<section>
-      		<h3>Ajouter un nouveau Produit</h3>
+      		<h3>Add Product</h3>
 			<form name="produitajouter" action="produitAjouter.php" method="POST">
 				<table cellspacing="2" cellpadding="2" name="ins">
 					<tr>
