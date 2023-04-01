@@ -12,7 +12,7 @@
         <?php
             include '../../includes/head.php';
         ?>
-		<title>Category</title>
+		<title>Show Category</title>
 	</head>
     <?php
         include '../../includes/header.php';
@@ -20,7 +20,7 @@
     ?>
     <body>
 		<section>
-        <h3>View Categories</h3>
+        <h3>Show Category</h3>
         <?php
             /* The list of categories */
             echo '<form name="categorieconsulter" action="show.php" method="POST">';
