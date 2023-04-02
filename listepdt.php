@@ -22,7 +22,7 @@
                         <th>Images</th>
                         <th>Code</th>
                         <th>Libellé</th>
-                        <th>Prix</th>
+                        <th>Price</th>
                         <th>Quantity</th>
                         <th>Action</th>
                     </tr>
