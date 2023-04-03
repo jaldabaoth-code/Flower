@@ -21,7 +21,7 @@
                     <tr>
                         <th>Images</th>
                         <th>Code</th>
-                        <th>Libellé</th>
+                        <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Action</th>
