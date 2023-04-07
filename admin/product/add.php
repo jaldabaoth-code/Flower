@@ -38,7 +38,7 @@
 						<td><input type="file" name="pdt_image"></td>
 					</tr>
 					<tr>             
-						<td>Categorie Product : </td>
+						<td>Category Product : </td>
             			<td>
               				<?php
 								$sql = 'SELECT cat_code, cat_libelle FROM categorie';
