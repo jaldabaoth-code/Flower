@@ -20,6 +20,6 @@
         </div>
     </div>
     <?php
-        include 'includes/login.php';
+        include '../includes/login.php';
     ?>
 </header>

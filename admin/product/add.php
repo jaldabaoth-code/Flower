@@ -30,7 +30,7 @@
 						<td><input type="text" name="pdt_designation"></td>
 					</tr>
 					<tr>
-						<td>Price Product : </td>
+						<td>Price : </td>
 						<td><input type="text" name="pdt_prix"></td>
 					</tr>
 					<tr>
