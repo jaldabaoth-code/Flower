@@ -34,7 +34,7 @@
 						<td><input type="text" name="pdt_prix"></td>
 					</tr>
 					<tr>
-						<td>Image Product : </td>
+						<td>Image : </td>
 						<td><input type="file" name="pdt_image"></td>
 					</tr>
 					<tr>             
