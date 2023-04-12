@@ -26,7 +26,7 @@
 						<td><input type="text" name="pdt_ref"></td>
 					</tr>
 					<tr>
-						<td>Designation Product : </td>
+						<td>Name : </td>
 						<td><input type="text" name="pdt_designation"></td>
 					</tr>
 					<tr>
