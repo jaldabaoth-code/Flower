@@ -22,7 +22,7 @@
 			<form name="produitajouter" action="produitAjouter.php" method="POST">
 				<table cellspacing="2" cellpadding="2" name="ins">
 					<tr>
-						<td>Reference Product : </td>
+						<td>Reference : </td>
 						<td><input type="text" name="pdt_ref"></td>
 					</tr>
 					<tr>
