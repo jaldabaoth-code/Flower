@@ -61,7 +61,7 @@
                             echo "<form name='categorieconsulter' action='categorieModifier.php' method='POST'>";
                                 echo "<table align='center' name='cateajouter'>";
                                 echo "<tr align='center'>";
-                                    echo "<td>Code Categorie : </td>";
+                                    echo "<td>Code Category : </td>";
                                     echo "<td><input type='text' name='cat_code' value='$catcode'></td>";
                                 echo "</tr>";
                                 echo "<tr align='center'>";
