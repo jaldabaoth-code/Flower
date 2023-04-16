@@ -69,7 +69,7 @@
                                     echo "<td><input type='text' name='cat_libelle' value='$catlibelle'></td>";
                                 echo "</tr>";
                                 echo "<tr align='center'>";
-                                    echo "<td colspan='2'><input type='submit' value='MODIFIER'></td>";
+                                    echo "<td colspan='2'><input type='submit' value='Modifie'></td>";
                                 echo "</tr>";
                                 echo "</table>";
                             echo "</form>";
