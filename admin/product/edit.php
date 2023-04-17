@@ -80,7 +80,7 @@
                                 echo "<td><input type='text' name='pdt_categorie' value='$pdtcategorie'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
-                                echo "<td colspan='2'><input type='submit' value='MODIFIER'></td>";
+                                echo "<td colspan='2'><input type='submit' value='Edit'></td>";
                             echo "</tr>";
                         echo "</table>";
                     echo "</form>";
