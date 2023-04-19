@@ -76,7 +76,7 @@
                                 echo "<td><input type='text' name='pdt_image' value='$pdtimage'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
-                                echo "<td>Categorie Produit : </td>";
+                                echo "<td>Category Produit : </td>";
                                 echo "<td><input type='text' name='pdt_categorie' value='$pdtcategorie'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
