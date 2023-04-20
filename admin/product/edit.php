@@ -64,7 +64,7 @@
                                 echo "<td><input type='text' name='pdt_ref' value='$pdtref'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
-                                echo "<td>Designation Produit : </td>";
+                                echo "<td>Name : </td>";
                                 echo "<td><input type='text' name='pdt_designation' value='$pdtdesignation'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
