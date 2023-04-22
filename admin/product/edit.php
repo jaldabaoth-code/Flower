@@ -72,7 +72,7 @@
                                 echo "<td><input type='text' name='pdt_prix' value='$pdtprix'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
-                                echo "<td>Image Produit : </td>";
+                                echo "<td>Image : </td>";
                                 echo "<td><input type='text' name='pdt_image' value='$pdtimage'></td>";
                             echo "</tr>";
                             echo "<tr align='center'>";
