@@ -65,7 +65,7 @@
                                     echo "<td><input type='text' name='cat_code' value='$catcode'></td>";
                                 echo "</tr>";
                                 echo "<tr align='center'>";
-                                    echo "<td>Libelle Category : </td>";
+                                    echo "<td>Name Category : </td>";
                                     echo "<td><input type='text' name='cat_libelle' value='$catlibelle'></td>";
                                 echo "</tr>";
                                 echo "<tr align='center'>";
