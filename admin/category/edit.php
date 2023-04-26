@@ -57,7 +57,6 @@
                             $catcode = $categorie['cat_code'];
                             $catlibelle = $categorie['cat_libelle'];
                             echo "1";
-                            // 
                             echo "<form name='categorieconsulter' action='categorieModifier.php' method='POST'>";
                                 echo "<table align='center' name='cateajouter'>";
                                 echo "<tr align='center'>";
