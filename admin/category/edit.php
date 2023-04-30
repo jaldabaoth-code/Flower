@@ -79,7 +79,7 @@
                     $cat_code = $_POST["cat_code"];
                     $cat_libelle = $_POST["cat_libelle"];
                     $sql = "UPDATE categorie SET cat_libelle = :cat_libelle WHERE cat_code = :cat_code";
-                    //$req = mysql_query($sql, $cnx) or die(mysql_error());
+                    // $req = mysql_query($sql, $cnx) or die(mysql_error());
                     $statement = $bdd->prepare($sql);
 
                     $statement->bindParam(':cat_code', $cat_code, PDO::PARAM_INT);
