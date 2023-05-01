@@ -22,7 +22,7 @@
         <section>
             <h3>Edit Category</h3>
             <?php
-                // La creation du formulaire
+                // 
                 echo '<form name="categorieconsulter" action="edit.php" method="POST">';
                     // La liste deroulante
                     // $sql = 'SELECT cat_code, cat_libelle FROM category';
