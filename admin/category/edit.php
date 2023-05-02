@@ -24,7 +24,6 @@
             <?php
                 // 
                 echo '<form name="categorieconsulter" action="edit.php" method="POST">';
-                    // La liste deroulante
                     // $sql = 'SELECT cat_code, cat_libelle FROM category';
                     $sql = 'SELECT cat_code, cat_libelle FROM categorie';
                     $statement = $bdd->query($sql);
