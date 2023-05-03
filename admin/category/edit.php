@@ -22,7 +22,7 @@
         <section>
             <h3>Edit Category</h3>
             <?php
-                // 
+                
                 echo '<form name="categorieconsulter" action="edit.php" method="POST">';
                     // $sql = 'SELECT cat_code, cat_libelle FROM category';
                     $sql = 'SELECT cat_code, cat_libelle FROM categorie';
