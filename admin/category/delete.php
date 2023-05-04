@@ -22,7 +22,6 @@
 	<body>
 		<section>
 			<h3>Delete Category</h3>
-			<!-- Liste deroulante -->
 			<form name="categoriesupprimer" action="categorieSupprimer.php" method="POST">
 				<?php             
 					$sql = 'SELECT cat_code, cat_libelle FROM categorie';
