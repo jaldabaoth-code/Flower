@@ -21,7 +21,6 @@
     <body>
         <section>
             <h3>Delete Product</h3>
-            <!-- Liste deroulante -->
             <form name="produitsupprimer" action="produitSupprimer.php" method="POST">
                 <?php             
                     $sql = 'SELECT pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie FROM produit';
