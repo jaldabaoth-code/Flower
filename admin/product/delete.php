@@ -27,7 +27,7 @@
 					$statement = $bdd->query($sql);
 					$produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 					if ($produits) {
-						// show the publishers
+						// 
 						echo '<select name="pdt_designation">';
 							foreach ($produits as $produit) {
 								echo "<option>";
