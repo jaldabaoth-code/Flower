@@ -47,7 +47,7 @@
 								$categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 				
 								if ($categories) {
-									// show the publishers
+									//
 									echo '<select name="cat_libelle">';
 									foreach ($categories as $categorie) {
 										echo "<option value=$pdt_categorie[cat_code]>";
