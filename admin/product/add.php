@@ -45,7 +45,6 @@
 								$statement = $bdd->query($sql);
 				
 								$categories = $statement->fetchAll(PDO::FETCH_ASSOC);
-				
 								if ($categories) {
 									
 									echo '<select name="cat_libelle">';
@@ -65,7 +64,6 @@
       			</table>
     		</form>
     		<?php
-				// Insertion d'un produit
 				if (!empty($_POST['pdt_ref'])) {
 					$pdt_ref = $_POST["pdt_ref"];
 					$pdt_designation = $_POST["pdt_designation"];
