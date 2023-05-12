@@ -38,7 +38,7 @@
 					if (isset($_POST['pdt_designation'])) {
 						$pdt_designation = $_POST["pdt_designation"];   
 					}
-					// Requete de suppression
+
 					$sql = 'DELETE FROM produit WHERE pdt_designation = :pdt_designatione';
 					$statement = $bdd->prepare($sql);
 					$statement->bindParam(':pdt_designatione', $pdt_designation, PDO::PARAM_STR);
